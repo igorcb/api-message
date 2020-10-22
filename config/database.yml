@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Rails.application.credentials.dig(:development, :postgres_username) %>
+  password:  <%= Rails.application.credentials.dig(:development, :postgres_password) %>
+  host: <%= Rails.application.credentials.dig(:development, :postgres_host) %>
+  port: <%= Rails.application.credentials.dig(:development, :postgres_port) %>
+
+development:
+  <<: *default
+  database: karavel_msn_api_development
+
+test:
+  <<: *default
+  database: karavel_msn_api_test
+
+production:
+  <<: *default
+  database: karavel_msn_api_production
+  username: karavel_msn_api
+  password: <%= ENV['KARAVEL_MSN_API_DATABASE_PASSWORD'] %>
