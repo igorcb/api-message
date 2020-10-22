@@ -2,8 +2,8 @@ class CreateMessages < ActiveRecord::Migration[6.0]
   def change
     create_table :messages do |t|
       t.references :contact, null: false, foreign_key: true
-      t.text :content
-      t.string :kind
+      t.text :content, null: false, default: ''
+      t.string :kind, null: false, default: ''
 
       t.timestamps
     end
