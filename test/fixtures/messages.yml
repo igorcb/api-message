@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  contact_id: one
+  contact: one
   content: MyText
   kind: MyString
 
 two:
-  contact_id: two
+  contact: two
   content: MyText
   kind: MyString
