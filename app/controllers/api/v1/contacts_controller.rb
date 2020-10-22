@@ -1,5 +1,5 @@
 class Api::V1::ContactsController < ApplicationController
-  before_action :set_contact, only: [:show]
+  before_action :set_contact, only: [:show, :update, :destroy]
 
   def index
     @contacts = Contact.all
@@ -11,6 +11,16 @@ class Api::V1::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.save!
     render json: @contact
+  end
+
+  def update
+    @contact.update(contact_params)
+    render json: @contact
+  end
+
+  def destroy
+    @contact.destroy
+    render json: {message: 'Contact destroy successfull'}
   end
 
   private
