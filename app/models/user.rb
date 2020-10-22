@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_paper_trail 
+
+  enum kind: {msn: 0, wpp: 1, blip: 2}
 end
