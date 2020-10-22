@@ -1,5 +1,5 @@
 class Api::V1::MessagesController < ApplicationController
-  before_action :set_message, only: [:show]
+  before_action :set_message, only: [:show, :update, :destroy]
 
   def index
     @messages = Message.all
@@ -12,6 +12,17 @@ class Api::V1::MessagesController < ApplicationController
     @message.save!
     render json: @message
   end
+
+  def update
+    @message.update(message_params)
+    render json: @message
+  end
+
+  def destroy
+    @message.destroy
+    render json: {message: 'Message destroy successfull'}
+  end
+
 
   private
 
