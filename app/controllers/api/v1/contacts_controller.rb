@@ -2,7 +2,7 @@ class Api::V1::ContactsController < ApplicationController
   before_action :set_contact, only: [:show]
 
   def index
-    contacts = Contact.all
+    @contacts = Contact.all
   end
 
   def show; end
